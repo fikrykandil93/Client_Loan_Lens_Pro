@@ -1,0 +1,6 @@
+Segment_Name,Clients,Income_Person,Age,Credit_Score,Has_Car,Owns_Realty,Higher_Edu
+Near-Prime – Emerging,79106,49500.0,36.44,0.59,36.66,66.25,0.36
+Prime – Mass Affluent,80991,112500.0,50.82,0.63,30.9,72.73,0.0
+Prime – Professionals,80196,96000.0,40.81,0.59,42.81,68.0,95.17
+Subprime – Mature,54630,67500.0,56.31,0.37,21.59,75.16,3.73
+Subprime – Young,52146,67500.0,33.02,0.24,34.46,65.07,12.65

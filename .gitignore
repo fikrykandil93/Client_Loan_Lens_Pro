@@ -1,0 +1,25 @@
+# ---- Raw Kaggle data (too large for GitHub: 26 MB, 166 MB and 405 MB) ----
+# Download from https://www.kaggle.com/competitions/home-credit-default-risk
+application_train.csv
+application_test.csv
+previous_application.csv
+*.zip
+
+# ---- Secrets and local environments ----
+.env
+.streamlit/secrets.toml
+.venv/
+venv/
+env/
+
+# ---- Python and Jupyter ----
+__pycache__/
+*.py[cod]
+.ipynb_checkpoints/
+
+# ---- Editors and OS ----
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+desktop.ini

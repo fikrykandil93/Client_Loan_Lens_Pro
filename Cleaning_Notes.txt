@@ -1,0 +1,39 @@
+LoanLens - Cleaning Notes (Loan Approval Project)
+=================================================
+
+1. Tables
+   - application_train + application_test -> clients table (356,255 clients), TARGET dropped
+   - previous_application -> kept Approved / Refused only
+   - Dropped 40,901 incomplete applications (no annuity, no term, NAME_PORTFOLIO = XNA, 99.99% refused -> leakage)
+   - Joined each client with his LATEST application (by DAYS_DECISION)
+   - Current-loan columns not selected (future information)
+
+2. Rows dropped (356,255 -> 347,069)
+   - REGION_RATING_CLIENT_W_CITY = -1 : 1
+   - CODE_GENDER = XNA                : 4
+   - FAMILY Unknown + FAM_MEMBERS NaN : 2
+   - Not working but has occupation   : 2
+   - Car owner, car age missing       : 6
+   - AMT_APPLICATION = 0 (Revolving)  : 9,171
+
+3. Columns fixed
+   - DAYS_EMPLOYED 365243 (64,648 not working) -> 0 -> MONTH_EMPLOYED
+   - DAYS_BIRTH -> AGE_YEARS
+   - ORGANIZATION_TYPE: XNA -> Not Working, 58 -> 35 categories
+   - OCCUPATION_TYPE: not working -> Not Working
+   - OWN_CAR_AGE: no car -> 0
+   - AMT_DOWN_PAYMENT: missing (Cash / Revolving) -> 0
+   - NAME_CLIENT_TYPE: XNA -> NaN
+   - Documents: 20 -> 4 common + OTHER_DOCUMENTS
+   - Credit bureau: 6 -> HAS_BUREAU_RECORD + TOTAL_BUREAU_REQ
+   - Dropped: DAYS_BIRTH, DAYS_EMPLOYED, DAYS_DECISION
+   - Outliers kept as instructed
+
+Final: 347,069 x 38 -> Clients_LoanLens_clean.parquet
+
+To do in model notebook:
+   - Drop 17,906 clients with no application (no target)
+   - OCCUPATION_TYPE -> constant 'Other'
+   - NAME_CLIENT_TYPE -> mode
+   - EXT_SOURCE_1/2/3 -> median (test EXT_SOURCE_1 with and without)
+   - Leakage check: AMT_ANNUITY, AMT_CREDIT
