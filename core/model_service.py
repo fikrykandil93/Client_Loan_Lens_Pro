@@ -8,6 +8,7 @@ import streamlit as st
 
 ROOT = Path(__file__).resolve().parent.parent
 REGION_POPULATION_MEDIAN = 0.01885   # not known by the loan officer → training median (or the client's own value)
+MAX_DOCUMENTS = 4                    # most documents any client has in the data (main + other)
 THRESHOLD = 0.5                      # refusal probability at or above this → "Refused"
 MIN_AMOUNT = 10_000
 
@@ -68,7 +69,10 @@ def build_row(app: dict) -> dict:
         "AMT_DOWN_PAYMENT": float(app["down_payment"]),
         "NAME_CONTRACT_TYPE": app["contract_type"],
         "NAME_CLIENT_TYPE": app["client_type"],
-        "OTHER_DOCUMENTS": len(app["other_docs"]),
+        # The data never has more than 4 documents in total, so the model sees at most 4;
+        # the form and the PDF still list every document the officer ticked.
+        "OTHER_DOCUMENTS": min(len(app["other_docs"]),
+                               MAX_DOCUMENTS - sum(int(app[f"doc_{d}"]) for d in (3, 5, 6, 8))),
         "HAS_BUREAU_RECORD": int(app["has_bureau"]),
         "TOTAL_BUREAU_REQ": app["bureau_req"],
         "MONTH_EMPLOYED": app["months_employed"],
