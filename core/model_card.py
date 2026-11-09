@@ -14,11 +14,11 @@ SILHOUETTE = "0.17–0.21"
 
 # LoanLens_02_Approval_Model: 5-fold cross-validation with class weights, default settings (%)
 ALGORITHMS = {
-    "Logistic Regression": {"F1": 44.65, "Precision": 31.41, "Recall": 77.15},
-    "Naive Bayes": {"F1": 36.44, "Precision": 22.99, "Recall": 87.84},
-    "Decision Tree": {"F1": 31.37, "Precision": 31.48, "Recall": 31.28},
-    "Random Forest": {"F1": 43.84, "Precision": 47.30, "Recall": 40.86},
-    "XGBoost": {"F1": 46.74, "Precision": 33.98, "Recall": 74.84},
+    "Logistic Regression": {"F1": 44.64, "Precision": 31.37, "Recall": 77.32},
+    "Naive Bayes": {"F1": 36.35, "Precision": 22.88, "Recall": 88.38},
+    "Decision Tree": {"F1": 31.37, "Precision": 31.59, "Recall": 31.16},
+    "Random Forest": {"F1": 44.10, "Precision": 47.29, "Recall": 41.31},
+    "XGBoost": {"F1": 46.66, "Precision": 33.84, "Recall": 75.11},
 }
 # Final XGBoost after GridSearchCV (learning_rate 0.1, max_depth 7, n_estimators 200)
 FINAL_MODEL = {"name": "XGBoost", "F1": 47.00, "Precision": 34.24, "Recall": 74.91}

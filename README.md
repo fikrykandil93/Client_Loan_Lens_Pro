@@ -68,10 +68,10 @@ The officer always makes the final decision.
 | Model (5-fold CV) | F1 | Precision | Recall |
 |---|---|---|---|
 | **XGBoost (tuned, final)** | **47.0%** | **34.2%** | **74.9%** |
-| Logistic Regression | 44.6% | 31.4% | 77.2% |
-| Random Forest | 43.8% | 47.3% | 40.9% |
-| Naive Bayes | 36.4% | 23.0% | 87.8% |
-| Decision Tree | 31.4% | 31.5% | 31.3% |
+| Logistic Regression | 44.6% | 31.4% | 77.3% |
+| Random Forest | 44.1% | 47.3% | 41.3% |
+| Naive Bayes | 36.4% | 22.9% | 88.4% |
+| Decision Tree | 31.4% | 31.6% | 31.2% |
 
 The model catches about 3 of every 4 refused applications. Loan type alone carries 68% of its
 importance: what the client asks for matters more than who the client is.
