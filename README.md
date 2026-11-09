@@ -9,7 +9,7 @@
 </p>
 
 <p align="center">
-  <a href="#">Live app</a> ·
+  <a href="https://clientloanlens.streamlit.app/">Live app</a> ·
   <a href="https://www.kaggle.com/competitions/home-credit-default-risk">Data source</a> ·
   <a href="#notebooks">Notebooks</a>
 </p>
